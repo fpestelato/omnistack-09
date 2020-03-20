@@ -19,13 +19,12 @@ export default function Dashboard() {
     loadSpots();
   }, []);
 
-  // <header style={{ backgroundImage: `url(${spot.thumbnail_url})` }} /> 
   return (
     <>
       <ul className="spot-list">
         {spots.map(spot=> (
           <li key={spot._id}>
-            <header style={{ backgroundImage: `url(http://localhost:3333/files/Wallpaper%20OmniStack%20-%20Mobile-1584206624142.png)` }} /> 
+            <header style={{ backgroundImage: `url(${spot.thumbnail_url.replace(/ /g, '%20')})` }} />
             <strong>{spot.company}</strong>
             <span>{spot.price ? `R$${spot.price}/dia` : "GRATUITO" }</span>
           </li>
